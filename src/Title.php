@@ -5,27 +5,35 @@ class Title{
 
 
     
-    function __construct( $name ){
+    function __construct( $name ,$change = true){
 
         
 
-        $this->init($name);
+        $this->init($name,$change);
     }
 
     /* 初始化标题 */
-    function init( $name ){
+    function init( $name ,$change = true){
 
         $name = trim( $name );
 
         $this->rawTitle = $name;
 
+        if($change){
+            
+            /* 简体转换 */
+            $this->SimplifiedTitle = Format::changeToSimplified( $name );
+            /* 加强简体转换 */
+            $this->SimplifiedTitle = Format::changeToSimplifiedPlus( $name );
 
-        /* 简体转换 */
-        $this->SimplifiedTitle = Format::changeToSimplified( $name );
-        /* 加强简体转换 */
-        $this->SimplifiedTitle = Format::changeToSimplifiedPlus( $this->SimplifiedTitle );
+            $name = $this->SimplifiedTitle;
         
-        $this->splitedTitle = $this->SimplifiedTitle;
+        }
+        
+        $this->splitedTitle = $name;
+
+
+
         /* 过滤出一般TAG */
         $this->tags = Format::completeToTag( $this->splitedTitle );
         /* 删除无用TAG */

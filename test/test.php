@@ -1,14 +1,14 @@
 <?php
 
-// require "../vendor/autoload.php";
+require "../vendor/autoload.php";
 
-require "../src/Format.php";
-require "../src/Title.php";
+// require "../src/Format.php";
+// require "../src/Title.php";
 
 use uccu\Tanime\Title;
 
 
-$a = new Title(' [Leopard-Raws][进击的巨人2nd] Shingeki no Kyojin Season 2 - 04 RAW (MBS 1280x720 x264 AAC).mp4 ',false);
+$a = new Title(' 【4月 悠哈璃羽字幕社】[UHA-WINGS][不要输！恶之军团][Makeruna!! Aku no Gundan!][03][1080p AVC_AAC][简繁外挂][sc_tc]',true);
 
 
 

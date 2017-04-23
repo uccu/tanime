@@ -198,12 +198,13 @@ class Format{
 
         $num = null;
 
-        foreach($arr as &$v){
-
-            if(preg_match('/ (\d{2,3})$/',$v,$h)){
-                $num = $h[1];
+        foreach($arr as $k=>&$v){
+            if(strlen($v) == 1 && is_numeric($v))unset($arr[$k]);
+            elseif(preg_match('/( |^)(\d{2,3})$/',$v,$h)){
+                $num = $h[2];
                  $v = str_replace($h[0],'',$v);
             }
+            if(!$v)unset($arr[$k]);
         }
 
         return $num;

@@ -1,5 +1,5 @@
-# tanime
-This project can format animation's title
+# Tanime
+It can format animation's title
 
 
 # LICENSE

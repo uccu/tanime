@@ -52,7 +52,7 @@ class Format{
     
     static function changeToSplit( $name ){
 
-        $name = preg_replace('# *({|【|「|\[|}|】|」|\]|\+|&| x |附|/|\\|~|\(|\)|:) *#','|',$name);
+        $name = preg_replace('# *({|【|「|\[|}|】|」|\]|\+|&| x |附|/|\\|~|\(|\)|:|~) *#','|',$name);
         
         self::trim( $name );
 
@@ -85,7 +85,7 @@ class Format{
 
             '(10|1|4|7|一|四|七|十)月(新番|泡面)?\b','剧场版','新番','生肉','合集\b','外传',
 
-            'OVA','OAD','(the )?MOVIE','\w+TV\b','MBS\b',
+            'OVA','OAD','(the )?MOVIE','\w+TV\b','MBS\b','\bcn\b',
 
             'h264\b','x26\d\b','10-?bit\b','8-?bit\b','HardSub','ACC\b','AAC\b','AC3\b','FLAC\b','HEVC\b','Main10p\b','VFR\b','Web(Rip)?\b',
             
@@ -97,7 +97,7 @@ class Format{
         $tag = [];
 
         foreach($array as $a)$name = mb_ereg_replace_callback($a,function($matches) use ( &$tag ){
-            $tag[] = trim($matches[0]);
+            $tag[] = trim($matches[0],". \t\n\r\0\x0B");
             return '|';
 
         },$name,'i');

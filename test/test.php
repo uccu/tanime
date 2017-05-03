@@ -8,7 +8,7 @@ require "../vendor/autoload.php";
 use uccu\Tanime\Title;
 
 
-$a = new Title(' 【4月 悠哈璃羽字幕社】[UHA-WINGS][不要输！恶之军团][Makeruna!! Aku no Gundan!][03][1080p AVC_AAC][简繁外挂][sc_tc]',true);
+$a = new Title('【7月新番】★[全職法師_QUANZHIFASHI][12 END][GB][720P][MP4]',true);
 
 
 
